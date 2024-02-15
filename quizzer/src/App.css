@@ -11,12 +11,13 @@ body {
   padding: 20px;
   font-family: "Poppins";
   background: var(--secondary);
+  color: white;
 }
 
 /* Make nav component and add css to component */
 header nav{
   display: flex;
-  gap:16px;
+  gap: 16px;
   justify-content: end;
   max-width: 1200px;
   margin: 0 auto;
@@ -25,16 +26,25 @@ header nav{
 header nav h1 {
   margin-right: auto;
   border-bottom: 3px solid var(--primary);
+  
 }
+
 
 header nav a {
   text-decoration: none;
   padding: 6px;
   border-radius: 4px;
+  height: 30px;
+  color: white;
 }
 
 header nav a.active {
   background-color: var(--primary);
+}
+
+main{
+  max-width: 1200px;
+  margin:40px auto;
 }
 
 /* body {
