@@ -9,13 +9,13 @@ import {
 } from "react-router-dom";
 //pages
 import reportWebVitals from './reportWebVitals';
-
+import GamesList from './Pages/games-list-page/GamesList';
 import App from './App';
 import Home from "./Pages/Home/Home";
-import Memory from "./Pages/Memory/Memory";
 //layout
-import RootLayout from "./layout/RootLayout";
 import NotFound from './Pages/NotFound/NotFound';
+//components
+import Navbar from './components/navbar/Navbar';
 
 const router = createBrowserRouter([
   {
@@ -24,9 +24,20 @@ const router = createBrowserRouter([
     errorElement: <NotFound/>,
   },
   { 
-    path:"/memory", 
-    element: <Memory />,
-  }
+    path:"/games", 
+    element: <GamesList />,
+    children={[
+      {
+        //Create all url routes to games here
+      }
+    ]}
+  },
+  {
+    path: "/games/:gameId",
+    element: <GamesList />,
+    
+  },
+
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
