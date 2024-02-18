@@ -6,7 +6,7 @@ const RootLayout = () => {
       <header>
         <nav>
           <h1 className="nav-header">Quizzer</h1>
-          <NavLink to={"/"}>Quizzer</NavLink>
+          
           <NavLink to={"memory"}>Games</NavLink>
         </nav>
       </header>

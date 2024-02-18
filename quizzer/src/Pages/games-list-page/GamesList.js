@@ -1,25 +1,27 @@
 import { NavLink } from "react-router-dom";
-import Navbar from "../../components/navbar/Navbar";
 const GamesList = () => {
-    
+  const gameList = [1, 2];
 
-    return(
-        <div>
-            <Navbar/>
-            <header>
-                <main>
-                    <div className="">
-                        <div>
-                            <NavLink to={"memory"}> <img src="" alt="Memory"/>Memory</NavLink> 
-                        </div>
-                    </div>
-                </main>
-            </header>
-            <footer>
-
-            </footer>
-        </div>
-    );
+  return (
+    <div>
+     <header>
+        <main>
+          <div className="">
+            <div>
+              {gameList.map(gameLists => {
+                return (
+                    <NavLink key={gameLists} to={`/games/${gameLists}`}>
+                        <h1>Game {gameLists}</h1>
+                    </NavLink>
+                    )
+              })}
+            </div>
+          </div>
+        </main>
+      </header>
+      <footer></footer>
+    </div>
+  );
 };
 
 export default GamesList;
