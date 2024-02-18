@@ -1,46 +1,50 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import {
-  createBrowserRouter,
-  Route,
-  createRoutesFromElements,
-  RouterProvider,
-} from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 //pages
-import reportWebVitals from './reportWebVitals';
-import GamesList from './Pages/games-list-page/GamesList';
-import App from './App';
+import Memory from "./Pages/Games/memory/Memory";
+import PictureMultpleChoice from "./Pages/Games/picture-multple-choice/PictureMultpleChoice";
+import reportWebVitals from "./reportWebVitals";
+import GamesList from "./Pages/games-list-page/GamesList";
+import "./App.css";
 import Home from "./Pages/Home/Home";
 //layout
-import NotFound from './Pages/NotFound/NotFound';
+import NotFound from "./Pages/NotFound/NotFound";
 //components
-import Navbar from './components/navbar/Navbar';
+import Navbar from "./components/navbar/Navbar";
 
-const router = createBrowserRouter([
-  {
-    path:"/", 
-    element:<Home />,
-    errorElement: <NotFound/>,
-  },
-  { 
-    path:"/games", 
-    element: <GamesList />,
-    children={[
-      {
-        //Create all url routes to games here
-      }
-    ]}
-  },
-  {
-    path: "/games/:gameId",
-    element: <GamesList />,
-    
-  },
+const router = createBrowserRouter(
+  // Maybe move all the routes to App.js so it easier to work with
+  [
+    {
+      path: "/",
+      element: <Navbar />,
+      errorElement: <NotFound />,
+      children : [
+        {
+          path: "/quizzer",
+          element: <Home />,
+        },
+        {
+          path: "/games",
+          element: <GamesList />,
+          
+        },
+        {
+          path: "/games/1",
+          element: <Memory />,
+        },
+        {
+          path: "/games/2",
+          element: <PictureMultpleChoice />,
+        }
+      ],
+    },
+  ]
+);
 
-]);
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />

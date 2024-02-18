@@ -1,16 +1,25 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet, useParams } from "react-router-dom";
 import "./Navbar.css";
+import Home from "../../Pages/Home/Home";
 
 const Navbar = () => {
+    const params = useParams()
+    console.log(params)
     return(
+        <>
         <header>
             <nav className="">
                 <h1 className="nav-header">Quizzer</h1>
-                <NavLink to={"/"}>Quizzer</NavLink>
-                <NavLink to={"games"}>Games</NavLink>
-                <NavLink to={"/"}>About</NavLink>
+                <NavLink to={"quizzer"}>Quizzer</NavLink>
+                <NavLink to={"/games"}>Games</NavLink>
             </nav>
         </header>
+            <main>
+                {/* REMOVE HOME */}
+                <Home/>
+                <Outlet/>
+            </main>
+        </>
     )
 }
 
