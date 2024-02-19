@@ -1,10 +1,10 @@
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import { NavLink, Outlet, useLocation} from "react-router-dom";
 import "./Navbar.css";
-import Home from "../../Pages/Home/Home";
 
 const Navbar = () => {
-    const params = useParams()
-    console.log(params)
+    const location = useLocation()
+    console.log(location.pathname === "/")
+
     return(
         <>
         <header>
@@ -15,8 +15,8 @@ const Navbar = () => {
             </nav>
         </header>
             <main>
-                {/* REMOVE HOME */}
-                <Home/>
+                {/* This can be a component, the welcome message */}
+                {location.pathname === "/" && <h2>Welcome to Quizzer. This is a learning platform that uses games to teach. Please click on Games to try out our fun educational games.</h2>}
                 <Outlet/>
             </main>
         </>
