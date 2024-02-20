@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Memory.css";
+import Cthulhu from "../../../assests/Cthulhu.jpg";
+
 
 const data = [
   {
@@ -87,13 +89,7 @@ const data = [
 const Memory = () => {
   const [flipCard, setFlipCard] = useState([]);
 
-  //   const handleCardClick = (e) => {
-  //     setFlipCard(prevState =>{
-  //         const index = e.target.getAttribute('index');
-  //         const isFlipped = prevState.includes(index)
-  //         return isFlipped ? prevState.filter(item => item !== index) : [...prevState, index];
-  //     })
-  //   };
+  
 
   const handleCardClick = (e) => {
     console.log(e.currentTarget.getAttribute("index"));
@@ -114,19 +110,20 @@ const Memory = () => {
               <div className="column" key={index}>
               <div
                 index={index}
-                className={`card${flipCard.includes(index) ? "flipped" : ""}`}
+                // className={`card${flipCard.includes(index) ? "flipped" : ""}`}
+                className="card"
                 onClick={handleCardClick}
                 >
                 {console.log(flipCard)}
 
                 {!flipCard.includes(index) && (
                   <div className="card-front">
-                  <p>This is the front</p>
+                  <p>Card Number {index +1}</p>
                 </div> 
                 )}
                 {flipCard.includes(index) && (
                 <div className="card-back">
-                <img src={mappedData.image} alt="Quizzer" />
+                <img src={Cthulhu} alt="Quizzer" />
                   <p>{mappedData.name}</p>
                   <p>{mappedData.description}</p>
                 </div>
@@ -142,17 +139,3 @@ const Memory = () => {
 
 export default Memory;
 
-{/* <div>
-{data.map((mappedData, index) => (
-    <div key={mappedData.name} className="column">
-      <div 
-        index={index}
-        onClick={handleCardClick}
-        className={`card ${flipCard.includes(index) ? "flipped" : ""}`}
-      >
-        <img src={mappedData.image} alt="Quizzer" />
-        <p>{mappedData.name}</p>
-      </div>
-    </div>
-  ))}
-  </div> */}
