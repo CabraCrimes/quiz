@@ -16,12 +16,12 @@
   
   .card {
     text-align: center;
-    backface-visibility : hidden;
+    /* backface-visibility : hidden; */
     width: 100%;
-    height: 120%;
+    height: 100%;
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-    padding: 10px;
+    padding: 15px;
     background-color: #f1f1f1;
     color: black;
     perspective: 1000px; /* Added perspective for 3D effect */
@@ -35,23 +35,32 @@
     
   }
 
-  .card flipped {
+  /* .card flipped {
     transform : rotateY(180deg);
-  }
+  } */
   
-  .card-front {
+  .card-front, .card-back {
     background-color: #ccc;
+    height: 100px;
+    
+  }
+
+  .card-back img {
+    max-width: 100px;
     
   }
   
-  .card-back {
-    /* background-color: #fff; */
-    /* transform: rotateY(180deg); */
-  }
+  /* .card-back {
+    background-color: #ccc;
+    height: 100px;
+  } */
 
   .card p {
-    margin-top: 10px;
-    font-size: 16px;
+    /* margin-top: 10px;
+    font-size: 16px; */
+    margin: 0;
+    border: 1px solid black;
+    background-color: aquamarine;
   }
   
   /* Responsive columns - one column layout (vertical) on small screens */
