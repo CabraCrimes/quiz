@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Memory.css";
 import Cthulhu from "../../../assests/Cthulhu.jpg";
 
-
 const data = [
   {
     name: "Cow",
@@ -89,8 +88,6 @@ const data = [
 const Memory = () => {
   const [flipCard, setFlipCard] = useState([]);
 
-  
-
   const handleCardClick = (e) => {
     console.log(e.currentTarget.getAttribute("index"));
     const index = parseInt(e.currentTarget.getAttribute("index"));
@@ -101,32 +98,30 @@ const Memory = () => {
     );
   };
   return (
-      <>
+    <>
       <div>
         <h1>Memory</h1>
         <div className="row">
           {/* THIS NEED TO BE A COMPONENT */}
           {data.map((mappedData, index) => (
-              <div className="column" key={index}>
+            <div className="column" key={index}>
               <div
                 index={index}
                 // className={`card${flipCard.includes(index) ? "flipped" : ""}`}
-                className="card"
+                className="card-body"
                 onClick={handleCardClick}
-                >
-                {console.log(flipCard)}
-
+              >
                 {!flipCard.includes(index) && (
                   <div className="card-front">
-                  <p>Card Number {index +1}</p>
-                </div> 
+                    <p>Card Number {index + 1}</p>
+                  </div>
                 )}
                 {flipCard.includes(index) && (
-                <div className="card-back">
-                <img src={Cthulhu} alt="Quizzer" />
-                  <p>{mappedData.name}</p>
-                  <p>{mappedData.description}</p>
-                </div>
+                  <div className="card-back">
+                    <img src={Cthulhu} alt="Quizzer" />
+                    {/* <p>{mappedData.name}</p>
+                    <p>{mappedData.description}</p> */}
+                  </div>
                 )}
               </div>
             </div>
@@ -138,4 +133,3 @@ const Memory = () => {
 };
 
 export default Memory;
-

@@ -8,7 +8,6 @@
 body {
   /* background-color: #282c34; */
   margin: 0;
-  padding: 20px;
   font-family: "Poppins";
   background: var(--secondary);
   color: white;
@@ -43,8 +42,9 @@ header nav a.active {
 }
 
 main{
-  max-width: 1200px;
-  margin:40px auto;
+  max-width: 100%;
+  /* Maybe take the bottom out so when the pages are reactive it doesnt look funny */
+  margin-left: 5%;
 }
 
 /* body {
