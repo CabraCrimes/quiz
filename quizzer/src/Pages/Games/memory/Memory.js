@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Memory.css";
 import Cthulhu from "../../../assests/Cthulhu.jpg";
+import PexelsAPI from "../../../api/PexelsAPI";
 
 const data = [
   {
@@ -85,11 +86,12 @@ const data = [
   },
 ];
 
+// this all needs to be a comonent
 const Memory = () => {
   const [flipCard, setFlipCard] = useState([]);
 
   const handleCardClick = (e) => {
-    console.log(e.currentTarget.getAttribute("index"));
+    // console.log(e.currentTarget.getAttribute("index"));
     const index = parseInt(e.currentTarget.getAttribute("index"));
     setFlipCard((prevFlippedCards) =>
       prevFlippedCards.includes(index)
@@ -101,6 +103,7 @@ const Memory = () => {
     <>
       <div>
         <h1>Memory</h1>
+        
         <div className="row">
           {/* THIS NEED TO BE A COMPONENT */}
           {data.map((mappedData, index) => (
