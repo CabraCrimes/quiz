@@ -43,8 +43,7 @@ header nav a.active {
 
 main{
   max-width: 100%;
-  /* Maybe take the bottom out so when the pages are reactive it doesnt look funny */
-  margin-left: 5%;
+  margin:auto 3%;
 }
 
 /* body {
