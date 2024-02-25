@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./MemoryGame.css";
-import Cthulhu from "../../../src/assests/Cthulhu.jpg";
 
 const data = [
   {
@@ -87,8 +86,14 @@ const data = [
 
 const MemoryGame = ({memoryData}) => {
   const [flipCard, setFlipCard] = useState([]);
-
-  console.log(memoryData)
+console.log(memoryData)
+  const handleCardData = () => {
+    const doubleCards = [];
+    doubleCards.push(memoryData)
+    return doubleCards;
+  };
+  const test = handleCardData();
+console.log(test)
 
   const handleCardClick = (e) => {
     // console.log(e.currentTarget.getAttribute("index"));
@@ -111,8 +116,8 @@ const MemoryGame = ({memoryData}) => {
     // 5 !== 1 evaluates to true, so 5 is kept in the array.
     
     // After filtering, the resulting array is [2, 5].
-
   };
+  // console.log(memoryData.map(e => e.src.medium))
   return (
     <>
       <div>

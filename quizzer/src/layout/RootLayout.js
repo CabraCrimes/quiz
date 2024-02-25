@@ -1,19 +1,24 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
+import Footer from "../components/footer/Footer.js";
+import Navbar from "../components/navbar/Navbar.js";
+
 
 const RootLayout = () => {
+  const location = useLocation()
+
   return (
     <div className="root-layout">
       <header>
-        <nav>
-          <h1 className="nav-header">Quizzer</h1>
-          
-          <NavLink to={"memory"}>Games</NavLink>
-        </nav>
+          <Navbar />
       </header>
-    <main>
-        <Outlet />
-    </main>
-
+      <main>
+            {/* This can be a component, the welcome message */}
+            {location.pathname === "/" && <h2>Welcome to Quizzer. This is a learning platform that uses games to teach. Please click on Games to try out our fun educational games.</h2>}
+            <Outlet/>
+        </main>
+        <footer>
+        {location.pathname !== "/" && location.pathname !== "/quizzer" && location.pathname !== "/games" ? "" : <Footer/>}
+        </footer>
     </div>
   );
 };
