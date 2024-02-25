@@ -10,16 +10,16 @@ import GamesList from "./Pages/games-list-page/GamesList";
 import "./App.css";
 import Home from "./Pages/Home/Home";
 //layout
+import RootLayout from "./layout/RootLayout";
 import NotFound from "./Pages/NotFound/NotFound";
 //components
-import Navbar from "./components/navbar/Navbar";
 
 const router = createBrowserRouter(
   // Maybe move all the routes to App.js so it easier to work with
   [
     {
       path: "/",
-      element: <Navbar />,
+      element: <RootLayout />,
       errorElement: <NotFound />,
       children : [
         {

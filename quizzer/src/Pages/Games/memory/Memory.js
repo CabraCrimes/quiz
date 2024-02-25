@@ -10,8 +10,8 @@ const Memory = () => {
   useEffect(()=>{
     const fetchMemoryData = async () =>{
       const fetchedMemoryData = await PexelsAPI();
-      // console.log(fetchedMemoryData.photos[0].src.medium)
-      setMemoryData(fetchedMemoryData.photos[0].src.medium)
+      console.log(fetchedMemoryData.photos)
+      setMemoryData(fetchedMemoryData)
     }
     fetchMemoryData()
   },[]);
