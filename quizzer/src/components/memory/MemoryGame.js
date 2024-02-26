@@ -1,99 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./MemoryGame.css";
 
-const data = [
-  {
-    name: "Cow",
-    image: "IMAGE OF COW",
-    description: "A farm animal that produces milk",
-  },
-  {
-    name: "Pig",
-    image: "IMAGE OF PIG",
-    description: "A farm animal that is used to make bacon",
-  },
-  {
-    name: "Chicken",
-    image: "IMAGE OF Chicken",
-    description: "A farm animal that produces eggs",
-  },
-  {
-    name: "Donkey",
-    image: "IMAGE OF DONKEY",
-    description: "A farm animal that is used for farm work",
-  },
-  {
-    name: "Cow2",
-    image: "IMAGE OF COW2",
-    description: "A farm animal that produces milk2",
-  },
-  {
-    name: "Pig2",
-    image: "IMAGE OF PIG2",
-    description: "A farm animal that is used to make bacon2",
-  },
-  {
-    name: "Chicken2",
-    image: "IMAGE OF Chicken2",
-    description: "A farm animal that produces eggs2",
-  },
-  {
-    name: "Donkey2",
-    image: "IMAGE OF DONKEY2",
-    description: "A farm animal that is used for farm work2",
-  },
-  {
-    name: "Cow3",
-    image: "IMAGE OF COW3",
-    description: "A farm animal that produces milk3",
-  },
-  {
-    name: "Pig3",
-    image: "IMAGE OF PIG3",
-    description: "A farm animal that is used to make bacon3",
-  },
-  {
-    name: "Chicken3",
-    image: "IMAGE OF Chicken3",
-    description: "A farm animal that produces eggs3",
-  },
-  {
-    name: "Donkey3",
-    image: "IMAGE OF DONKEY3",
-    description: "A farm animal that is used for farm work3",
-  },
-  {
-    name: "Cow4",
-    image: "IMAGE OF COW4",
-    description: "A farm animal that produces milk4",
-  },
-  {
-    name: "Pig4",
-    image: "IMAGE OF PIG4",
-    description: "A farm animal that is used to make bacon4",
-  },
-  {
-    name: "Chicken4",
-    image: "IMAGE OF Chicken4",
-    description: "A farm animal that produces eggs4",
-  },
-  {
-    name: "Donkey4",
-    image: "IMAGE OF DONKEY4",
-    description: "A farm animal that is used for farm work4",
-  },
-];
 
 const MemoryGame = ({memoryData}) => {
   const [flipCard, setFlipCard] = useState([]);
-console.log(memoryData)
-  const handleCardData = () => {
-    const doubleCards = [];
-    doubleCards.push(memoryData)
-    return doubleCards;
-  };
-  const test = handleCardData();
-console.log(test)
+  const [doubleCardData, setDoubleCardData] = useState([])
+  const [shuffledData, setShuffledData] = useState([]);
+
+  useEffect(() => {
+    const handleCardData = (data) =>{
+      const doubleData = [...data, ...data]
+      return doubleData
+    };
+    const handledDoubledData = handleCardData(memoryData);
+
+    // Function to shuffle the array
+    const shuffleArray = (array) => {
+      const shuffledArray = [...array];
+      for (let i = shuffledArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+      }
+      return shuffledArray;
+    };
+
+    // Shuffle the memory data array
+    const shuffledMemoryData = shuffleArray(handledDoubledData);
+    setShuffledData(shuffledMemoryData);
+  },[memoryData])
+  
+  console.log(shuffledData)
 
   const handleCardClick = (e) => {
     // console.log(e.currentTarget.getAttribute("index"));
@@ -117,14 +53,14 @@ console.log(test)
     
     // After filtering, the resulting array is [2, 5].
   };
-  // console.log(memoryData.map(e => e.src.medium))
+  
   return (
     <>
       <div>
         <h1>Memory</h1>
         
         <div className="row">
-          {data.map((mappedData, index) => (
+          {shuffledData.map((cardMappedData, index) => (
             <div className="column" key={index}>
               <div
                 index={index}
@@ -139,7 +75,7 @@ console.log(test)
                 )}
                 {flipCard.includes(index) && (
                   <div className="card-back">
-                    <img src={memoryData} alt="Quizzer" />
+                    <img src={cardMappedData.src.medium} alt="Quizzer" />
                     {/* <p>{mappedData.name}</p>
                     <p>{mappedData.description}</p> */}
                   </div>
