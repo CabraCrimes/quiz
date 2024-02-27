@@ -4,7 +4,6 @@ import "./MemoryGame.css";
 
 const MemoryGame = ({memoryData}) => {
   const [flipCard, setFlipCard] = useState([]);
-  const [doubleCardData, setDoubleCardData] = useState([])
   const [shuffledData, setShuffledData] = useState([]);
 
   useEffect(() => {
@@ -29,16 +28,22 @@ const MemoryGame = ({memoryData}) => {
     setShuffledData(shuffledMemoryData);
   },[memoryData])
   
-  console.log(shuffledData)
+  // console.log(shuffledData)
 
   const handleCardClick = (e) => {
     // console.log(e.currentTarget.getAttribute("index"));
     const index = parseInt(e.currentTarget.getAttribute("index"));
+    const id = e.currentTarget.getAttribute("id");
     setFlipCard((prevFlippedCards) =>
       prevFlippedCards.includes(index) ? 
       prevFlippedCards.filter((item) => item !== index)
         : [...prevFlippedCards, index]
     );
+
+    if(id) ?
+    // how can we conditionaly remove the cards when the id is found. Make a seperate card for for matching id or remove cards
+
+    console.log(flipCard)
     // So, in your example, if prevFlippedCards is [1, 2, 5] and index is 1, here's what happens:
 
     // For item = 1 (the first item in prevFlippedCards):
@@ -63,6 +68,7 @@ const MemoryGame = ({memoryData}) => {
           {shuffledData.map((cardMappedData, index) => (
             <div className="column" key={index}>
               <div
+                id={cardMappedData.id}
                 index={index}
                 // className={`card${flipCard.includes(index) ? "flipped" : ""}`}
                 className="card-body"
@@ -74,7 +80,7 @@ const MemoryGame = ({memoryData}) => {
                   </div>
                 )}
                 {flipCard.includes(index) && (
-                  <div className="card-back">
+                  <div  className="card-back">
                     <img src={cardMappedData.src.medium} alt="Quizzer" />
                     {/* <p>{mappedData.name}</p>
                     <p>{mappedData.description}</p> */}
