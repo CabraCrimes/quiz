@@ -35,12 +35,12 @@ const MemoryGame = ({memoryData}) => {
     const index = parseInt(e.currentTarget.getAttribute("index"));
     const id = e.currentTarget.getAttribute("id");
     setFlipCard((prevFlippedCards) =>
-      prevFlippedCards.includes(index) ? 
-      prevFlippedCards.filter((item) => item !== index)
-        : [...prevFlippedCards, index]
+      prevFlippedCards.includes(index && id) ? 
+      prevFlippedCards.filter((item) => item !== index && item === id)
+        : [...prevFlippedCards, index, id]
     );
 
-    if(id) ?
+    // if(id) ?
     // how can we conditionaly remove the cards when the id is found. Make a seperate card for for matching id or remove cards
 
     console.log(flipCard)
