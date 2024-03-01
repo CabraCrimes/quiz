@@ -35,7 +35,7 @@ const MemoryGame = ({ memoryData }) => {
     // console.log(e.currentTarget.getAttribute("index"));
     const index = parseInt(e.currentTarget.getAttribute("index"));
     const id = parseInt(e.currentTarget.getAttribute("id"));
-
+//look below for issues
     console.log("Clicked index:", index);
     console.log("Clicked id:", id);
 
