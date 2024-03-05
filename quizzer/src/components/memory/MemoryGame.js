@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import RestartButton from "../restart-button/RestartButton.js";
 import "./MemoryGame.css";
 
 const MemoryGame = ({ memoryData }) => {
@@ -6,7 +7,6 @@ const MemoryGame = ({ memoryData }) => {
   const [shuffledData, setShuffledData] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
   const [restart, setRestart] = useState(false);
-
   const reloadButton = matchedCards.length === 8;
 
   useEffect(() => {
@@ -38,16 +38,8 @@ const MemoryGame = ({ memoryData }) => {
     // console.log(e.currentTarget.getAttribute("index"));
     const index = parseInt(e.currentTarget.getAttribute("index"));
     const id = parseInt(e.currentTarget.getAttribute("id"));
-    //look below for issues
-    console.log("Clicked index:", index);
-    console.log("Clicked id:", id);
 
     // If the clicked card is already flipped or matched, return
-    console.log(flipCard.includes(index));
-    console.log("Flip Card", flipCard);
-    console.log("Matched", matchedCards);
-    console.log("flipCard.length", flipCard.length);
-    console.log("matched.length", matchedCards.length);
     if (
       flipCard.includes(index) ||
       matchedCards.includes(id) ||
@@ -88,24 +80,8 @@ const MemoryGame = ({ memoryData }) => {
     <>
       <div>
         <h1>Memory</h1>
-
-        {reloadButton && (
-          <button type="button" onClick={reload} className="restartButton">
-          <span className="button__text">Restart</span>
-          <span className="button__icon">
-            <svg
-              className="svg"
-              height="48"
-              viewBox="0 0 48 48"
-              width="48"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M35.3 12.7c-2.89-2.9-6.88-4.7-11.3-4.7-8.84 0-15.98 7.16-15.98 16s7.14 16 15.98 16c7.45 0 13.69-5.1 15.46-12h-4.16c-1.65 4.66-6.07 8-11.3 8-6.63 0-12-5.37-12-12s5.37-12 12-12c3.31 0 6.28 1.38 8.45 3.55l-6.45 6.45h14v-14l-4.7 4.7z"></path>
-              <path d="M0 0h48v48h-48z" fill="none"></path>
-            </svg>
-          </span>
-        </button>
-        )}
+        
+        {reloadButton && <RestartButton onClick={reload}/>}
         
         <div className="row">
           {shuffledData.map((cardMappedData, index) => (
