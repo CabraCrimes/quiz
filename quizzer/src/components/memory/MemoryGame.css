@@ -28,24 +28,37 @@ body {
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    height: auto;
-    margin: 5px auto;
     /* box-sizing: border-box;*/  /* makes the element stay the size you want. It takes into account padding from other elements */
     
   }
   
   /* The overall body of the card. Not a lot of style are used on it but rather its children */
   .card-body {
+    transition: transform 0.5s ease;
     display: flex;
     justify-content: center;
     max-height: 100%;
   }
+
+  /* .card-body-flipped:active{
+    transform: rotateY(180deg);
+    transform: scale(1.05);
+    transition: transform 1s ease;
+  } */
 
   .card-body:hover {
     transform: scale(1.05) ;
     cursor: pointer;
     
   }
+
+  /* Create a useState or function that when the card is clicked it will change the class. The problem now is 
+  flipped is only active depending on the card id or card index. if index 1 then flip which is incorrect */
+  .flipped {
+    transform: rotateY(180deg);
+    transition: transform 1s ease;
+  }
+  
 
   .card-front, 
   .card-back {
@@ -81,23 +94,28 @@ body {
     background-color: aquamarine;
   }
 
+  
+
   /* Responsive columns - one column layout (vertical) on small screens */
-  @media screen and (max-width: 950px) {
-    
+  @media screen and (max-width: 930px) {
     
     .row {
       border: 1px solid rgb(110, 137, 148);
       background-color: rgb(133, 153, 165);
       border-radius: 8px;
       display: grid;
-      grid-template-columns: repeat(3, ); /* Adjusted for smaller screens */
-      gap: 0;
+      gap: 8px;
+      grid-template-columns: repeat(auto-fit,  minmax(20%, 1fr));
       max-width: 100%;
-      padding: 0;
+      padding: 20px;
+      margin-bottom: 20px;
      }
-
-     .column {
-      width: 90%;
+  
+    .column {
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      /* box-sizing: border-box;*/  /* makes the element stay the size you want. It takes into account padding from other elements */
     }
 
      .card-body {
@@ -108,7 +126,8 @@ body {
   
     .card-front{
       max-width: 100%;
-      height: 160px;
+      width: 21vw;
+      height: 18vh;
     }
     
     .card-back {
@@ -116,8 +135,8 @@ body {
       justify-content: center;
       align-content: center;
       max-width: 100%;
-      height: 160px;
-      
+      width: 21vw;
+      height: 18vh;
     }
   
     .card-back img {
@@ -125,7 +144,67 @@ body {
       max-height: 100%;
       border-radius: 8px;
       width: 100%;
-      height: 160px;
+    }
+  
+
+
+  }
+
+
+/* Responsive columns - one column layout (vertical) on small screens */
+  @media screen and (max-width: 530px) {
+    
+    h1{
+      margin: 0px;
+    }
+    
+    .row {
+      border: 1px solid rgb(110, 137, 148);
+      background-color: rgb(133, 153, 165);
+      border-radius: 8px;
+      display: grid;
+      gap: 8px;
+      grid-template-columns: repeat(auto-fit,  minmax(30%, 1fr));
+      max-width: 100%;
+      padding: 10px;
+     }
+  
+    .column {
+      height: 110px;
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      margin-bottom: 10px;
+      /* box-sizing: border-box;*/  /* makes the element stay the size you want. It takes into account padding from other elements */
+      
+    }
+
+     .card-body {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+  
+    .card-front{
+      max-width: 100%;
+      width: 30vw;
+      height: 13vh;
+    }
+    
+    .card-back {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      max-width: 100%;
+      width: 30vw;
+      height: 13vh;
+    }
+  
+    .card-back img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 8px;
+      width: 100%;
     }
   
 
