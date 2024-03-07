@@ -53,7 +53,8 @@ body {
   }
 
   /* Create a useState or function that when the card is clicked it will change the class. The problem now is 
-  flipped is only active depending on the card id or card index. if index 1 then flip which is incorrect */
+  flipped is only active depending on the card id or card index. if index 1 then flip which is incorrect.
+  When we click the card it should change the className not the array number. Maybe a boolean*/
   .flipped {
     transform: rotateY(180deg);
     transition: transform 1s ease;
