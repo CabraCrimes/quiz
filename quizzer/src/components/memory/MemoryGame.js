@@ -7,6 +7,10 @@ const MemoryGame = ({ memoryData }) => {
   const [shuffledData, setShuffledData] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
   const [restart, setRestart] = useState(false);
+  const [flip, setFlip] = useState(true);
+  const [index, setIndex] = useState(null);
+  const [id, setId] = useState(null);
+  
   const reloadButton = matchedCards.length === 8;
 
   useEffect(() => {
@@ -37,7 +41,12 @@ const MemoryGame = ({ memoryData }) => {
   const handleCardClick = (e) => {
     // console.log(e.currentTarget.getAttribute("index"));
     const index = parseInt(e.currentTarget.getAttribute("index"));
+    setIndex(index)
     const id = parseInt(e.currentTarget.getAttribute("id"));
+    setId(id)
+
+    //sets flip to true or false so the card flip animation happens when the state changes
+    setFlip(!flip)
 
     // If the clicked card is already flipped or matched, return
     if (
@@ -75,7 +84,7 @@ const MemoryGame = ({ memoryData }) => {
     setRestart(!restart);
     setMatchedCards([]);
   };
-
+console.log(id, index)
   return (
     <>
       <div>
@@ -89,12 +98,7 @@ const MemoryGame = ({ memoryData }) => {
               <div
                 id={cardMappedData.id}
                 index={index}
-                className={`card-body${
-                  flipCard.includes(index) ||
-                  matchedCards.includes(cardMappedData.id)
-                    ? " flipped"
-                    : ""
-                }`}
+                className={`${index  ? "flipped" : "card-body"}`}
                 // className="card-body"
                 onClick={handleCardClick}
               >
