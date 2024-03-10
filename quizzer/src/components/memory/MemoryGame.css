@@ -37,8 +37,6 @@ h1 {
   cursor: pointer;
 }
 
-/* Why do the const [matchedCards, setMatchedCards] = useState([]); cards flip back tp the normal faceing direction */
-
 .flipped {
   z-index: 10;
   transform: rotateY(180deg);
@@ -64,19 +62,22 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: fill;
-  backface-visibility: hidden;
   position: relative;
-  border-radius: 8px; /* Added border-radius */
+  border-radius: 8px;
+}
+
+.img-flipped{
+  transform: rotateY(180deg);
+  transition: transform 1s ease;
 }
 
 .card-back::before {
-  transform: rotate(180deg) !important;
+  
   background-color:  #ffffffeb;
   border-radius: 8px;
   position: relative;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden;
   transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform-style: preserve-3d;
 }

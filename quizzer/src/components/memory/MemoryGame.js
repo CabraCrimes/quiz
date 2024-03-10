@@ -51,13 +51,7 @@ const MemoryGame = ({ memoryData }) => {
     // setFlip(idData && !flip )
 
     // If the clicked card is already flipped or matched, return
-    if (
-      flipCard.includes(index) ||
-      matchedCards.includes(id) ||
-      flipCard.length > 2
-    ) {
-      return;
-    }
+    if (flipCard.includes(index) ||matchedCards.includes(id) ||flipCard.length > 2) return;
 
     // Update the flipped cards state with the index and id of the clicked card
     setTimeout(() => {
@@ -88,7 +82,7 @@ const MemoryGame = ({ memoryData }) => {
     setRestart(!restart);
     setMatchedCards([]);
   };
-
+  console.log("matchedCards ",matchedCards)
   return (
     <>
       <div>
@@ -115,7 +109,7 @@ const MemoryGame = ({ memoryData }) => {
                 {(flipCard.includes(index) ||
                   matchedCards.includes(cardMappedData.id)) && (
                   <div className="card-back">
-                    <img src={cardMappedData.src.medium} alt="Quizzer" />
+                    <img className={`img${flipCard.includes(index) ? "-flipped" : ""}`} src={cardMappedData.src.medium} alt="Quizzer" />
                     {/* <p>{mappedData.name}</p>
                     <p>{mappedData.description}</p> */}
                   </div>
