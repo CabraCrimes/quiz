@@ -1,213 +1,190 @@
-
 body {
-    font-family: Arial, Helvetica, sans-serif;
-  }
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-  h1{
-    margin-top: 0;
-  }
+h1 {
+  margin-top: 0;
+}
 
-  /* This code to create the rows etc: grid-template-columns: repeat(auto-fit,  minmax(20%, 1fr));
-  Then the below code in the divs you want to be responsive is the key to responsive behavour
+.row {
+  border: 1px solid rgb(110, 137, 148);
+  background-color: rgb(133, 153, 165);
+  border-radius: 8px;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+  max-width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-body {
+  transition: transform 0.5s ease;
+  display: flex;
+  justify-content: center;
+  max-height: 100%;
+}
+
+.card-back:hover,
+.card-front:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Why do the const [matchedCards, setMatchedCards] = useState([]); cards flip back tp the normal faceing direction */
+
+.flipped {
+  z-index: 10;
+  transform: rotateY(180deg);
+  transition: transform 1s ease;
+}
+
+.card-front,
+.card-back {
+  display: flex;
+  justify-content: center;
+  align-content: center;
   width: 22vw;
-  height: 18vh; */
-  
+  height: 18vh;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffffeb;
+  color: black;
+  transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  backface-visibility: hidden;
+  position: relative;
+  border-radius: 8px; /* Added border-radius */
+}
+
+.card-back::before {
+  transform: rotate(180deg) !important;
+  background-color:  #ffffffeb;
+  border-radius: 8px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+}
+
+
+.card p {
+  margin: 0;
+  border: 1px solid black;
+  background-color: aquamarine;
+}
+
+@media screen and (max-width: 930px) {
   .row {
     border: 1px solid rgb(110, 137, 148);
     background-color: rgb(133, 153, 165);
     border-radius: 8px;
     display: grid;
     gap: 8px;
-    grid-template-columns: repeat(auto-fit,  minmax(20%, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
     max-width: 100%;
     padding: 20px;
     margin-bottom: 20px;
-   }
+  }
 
   .column {
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    /* box-sizing: border-box;*/  /* makes the element stay the size you want. It takes into account padding from other elements */
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  
-  /* The overall body of the card. Not a lot of style are used on it but rather its children */
+
   .card-body {
-    transition: transform 0.5s ease;
     display: flex;
     justify-content: center;
-    max-height: 100%;
+    width: 100%;
   }
 
-  /* .card-body-flipped:active{
-    transform: rotateY(180deg);
-    transform: scale(1.05);
-    transition: transform 1s ease;
-  } */
-
-  .card-body:hover {
-    transform: scale(1.05) ;
-    cursor: pointer;
-    
+  .card-front {
+    max-width: 100%;
+    width: 21vw;
+    height: 18vh;
   }
 
-  /* Create a useState or function that when the card is clicked it will change the class. The problem now is 
-  flipped is only active depending on the card id or card index. if index 1 then flip which is incorrect.
-  When we click the card it should change the className not the array number. Maybe a boolean*/
-  .flipped{
-    transform: rotateY(180deg);
-    transition: transform 1s ease;
-  }
-  
-
-  .card-front, 
   .card-back {
     display: flex;
     justify-content: center;
     align-content: center;
-    width: 22vw;
+    max-width: 100%;
+    width: 21vw;
     height: 18vh;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-    background-color: #ffffffeb;
-    color: black;
-    transition : transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    /* backface-visibility : hidden; */
-    /* perspective: 1000px; 
-    transform-style : preserve-3d; */
-    
   }
 
   .card-back img {
     max-width: 100%;
     max-height: 100%;
     border-radius: 8px;
-    object-fit: cover;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  h1 {
+    margin: 0px;
   }
 
-  .card p {
-    /* margin-top: 10px;
-    font-size: 16px; */
-    margin: 0;
-    border: 1px solid black;
-    background-color: aquamarine;
+  .row {
+    border: 1px solid rgb(110, 137, 148);
+    background-color: rgb(133, 153, 165);
+    border-radius: 8px;
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+    max-width: 100%;
+    padding: 10px;
   }
 
-  
-
-  /* Responsive columns - one column layout (vertical) on small screens */
-  @media screen and (max-width: 930px) {
-    
-    .row {
-      border: 1px solid rgb(110, 137, 148);
-      background-color: rgb(133, 153, 165);
-      border-radius: 8px;
-      display: grid;
-      gap: 8px;
-      grid-template-columns: repeat(auto-fit,  minmax(20%, 1fr));
-      max-width: 100%;
-      padding: 20px;
-      margin-bottom: 20px;
-     }
-  
-    .column {
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      /* box-sizing: border-box;*/  /* makes the element stay the size you want. It takes into account padding from other elements */
-    }
-
-     .card-body {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-    }
-  
-    .card-front{
-      max-width: 100%;
-      width: 21vw;
-      height: 18vh;
-    }
-    
-    .card-back {
-      display: flex;
-      justify-content: center;
-      align-content: center;
-      max-width: 100%;
-      width: 21vw;
-      height: 18vh;
-    }
-  
-    .card-back img {
-      max-width: 100%;
-      max-height: 100%;
-      border-radius: 8px;
-      width: 100%;
-    }
-  
-
-
+  .column {
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
   }
 
-
-/* Responsive columns - one column layout (vertical) on small screens */
-  @media screen and (max-width: 530px) {
-    
-    h1{
-      margin: 0px;
-    }
-    
-    .row {
-      border: 1px solid rgb(110, 137, 148);
-      background-color: rgb(133, 153, 165);
-      border-radius: 8px;
-      display: grid;
-      gap: 8px;
-      grid-template-columns: repeat(auto-fit,  minmax(30%, 1fr));
-      max-width: 100%;
-      padding: 10px;
-     }
-  
-    .column {
-      height: 110px;
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      margin-bottom: 10px;
-      /* box-sizing: border-box;*/  /* makes the element stay the size you want. It takes into account padding from other elements */
-      
-    }
-
-     .card-body {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-    }
-  
-    .card-front{
-      max-width: 100%;
-      width: 30vw;
-      height: 13vh;
-    }
-    
-    .card-back {
-      display: flex;
-      justify-content: center;
-      align-content: center;
-      max-width: 100%;
-      width: 30vw;
-      height: 13vh;
-    }
-  
-    .card-back img {
-      max-width: 100%;
-      max-height: 100%;
-      border-radius: 8px;
-      width: 100%;
-    }
-  
-
-
+  .card-body {
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
+
+  .card-front {
+    max-width: 100%;
+    width: 30vw;
+    height: 13vh;
+  }
+
+  .card-back {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    max-width: 100%;
+    width: 30vw;
+    height: 13vh;
+  }
+
+  .card-back img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 8px;
+    width: 100%;
+  }
+}
