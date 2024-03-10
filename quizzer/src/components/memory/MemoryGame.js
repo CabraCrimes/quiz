@@ -46,7 +46,9 @@ const MemoryGame = ({ memoryData }) => {
     setId(id)
 
     //sets flip to true or false so the card flip animation happens when the state changes
-    setFlip(!flip)
+    // const idData = shuffledData.filter(e => e.id === id).map(e => e.id).includes(id);
+    // console.log("IdArray", idData)
+    // setFlip(idData && !flip )
 
     // If the clicked card is already flipped or matched, return
     if (
@@ -58,8 +60,10 @@ const MemoryGame = ({ memoryData }) => {
     }
 
     // Update the flipped cards state with the index and id of the clicked card
-    setFlipCard((prevFlippedCards) => [...prevFlippedCards, index, id]);
-
+    setTimeout(() => {
+      setFlipCard((prevFlippedCards) => [...prevFlippedCards, index, id]);
+    }, 150)
+    
     // If there are two flipped cards, check if they match
     if (flipCard.length === 2) {
       const firstCardIndex = flipCard[0];
@@ -70,12 +74,12 @@ const MemoryGame = ({ memoryData }) => {
         // Clear flipped cards after a short delay
         setTimeout(() => {
           setFlipCard([]);
-        }, 1500); // Adjust the time as needed
+        }, 900); // Adjust the time as needed
       } else {
         // Clear flipped cards after a short delay
         setTimeout(() => {
           setFlipCard([]);
-        }, 1000); // Adjust the time as needed
+        }, 1500); // Adjust the time as needed
       }
     }
   };
@@ -84,7 +88,7 @@ const MemoryGame = ({ memoryData }) => {
     setRestart(!restart);
     setMatchedCards([]);
   };
-console.log(id, index)
+
   return (
     <>
       <div>
@@ -98,7 +102,7 @@ console.log(id, index)
               <div
                 id={cardMappedData.id}
                 index={index}
-                className={`${index  ? "flipped" : "card-body"}`}
+                className={`card-body ${flipCard.includes(index) ? "flipped" : ""}`}
                 // className="card-body"
                 onClick={handleCardClick}
               >
