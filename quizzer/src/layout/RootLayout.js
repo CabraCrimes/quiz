@@ -17,6 +17,7 @@ const RootLayout = () => {
             <Outlet/>
         </main>
         <footer>
+          {/* This can be a component, the footer */}
         {location.pathname !== "/" && location.pathname !== "/quizzer" && location.pathname !== "/games" ? "" : <Footer/>}
         </footer>
     </div>

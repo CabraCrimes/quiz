@@ -1,0 +1,36 @@
+.body{
+
+}
+
+.matchingCards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 1px solid rgb(110, 137, 148);
+    padding: 10px;
+    border-radius: 8px;
+    
+    
+}
+
+.macthingCardLinks{
+    display: inline;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.macthingCardsButton{
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid rgb(110, 137, 148);
+    border-radius: 8px;
+    height: 200px;
+    width: 260px;
+}
+
+.macthingCardsButton:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
+    cursor: pointer;
+  }

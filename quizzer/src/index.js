@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 //pages
-import Memory from "./Pages/Games/memory/Memory";
+import Memory from "./Pages/Games/matching-cards/maching-cards-animals/Memory";
 import PictureMultpleChoice from "./Pages/Games/picture-multple-choice/PictureMultpleChoice";
 import reportWebVitals from "./reportWebVitals";
 import GamesList from "./Pages/games-list-page/GamesList";
@@ -32,7 +32,7 @@ const router = createBrowserRouter(
           
         },
         {
-          path: "/games/1",
+          path: "/games/Animals",
           element: <Memory />,
         },
         {
