@@ -2,19 +2,19 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-h1 {
-  margin-top: 0;
-}
-
 .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
   border: 1px solid rgb(110, 137, 148);
   background-color: rgb(133, 153, 165);
   border-radius: 8px;
   display: grid;
   gap: 8px;
-  grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(20%, 23.5%));
   max-width: 100%;
-  padding: 20px;
+  padding: 15px;
   margin-bottom: 20px;
 }
 
@@ -48,8 +48,8 @@ h1 {
   display: flex;
   justify-content: center;
   align-content: center;
-  width: 22vw;
-  height: 18vh;
+  width: 21vw;
+  height: 19vh;
   text-align: center;
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);

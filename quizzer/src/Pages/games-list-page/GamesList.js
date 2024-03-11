@@ -1,24 +1,30 @@
 import { NavLink } from "react-router-dom";
+import "./GameList.css"
 const GamesList = () => {
-  const gameList = [1, 2];
+  const gameList = ["Animals", "Clothes", "Fruit", "Vegitables"];
 
   return (
     <div>
-     <header>
+      <header className="header">
+        <h1>Choose a Game</h1>
+      </header>
         <main>
-          <div className="">
-            <div>
+          <div className="container">
+              <h2>Matching Cards</h2>
+            <div className="matchingCards">
               {gameList.map(gameLists => {
                 return (
-                    <NavLink key={gameLists} to={`/games/${gameLists}`}>
-                        <h1>Game {gameLists}</h1>
-                    </NavLink>
+                  <NavLink style={{textDecoration: 'none'}}  key={gameLists} to={`/games/${gameLists}`}>
+                        <div className="macthingCardsButton">
+                          <h2 className={"macthingCardLinks"}>Game {gameLists}</h2>
+                          <img></img>
+                    </div>
+                      </NavLink>
                     )
               })}
             </div>
           </div>
         </main>
-      </header>
       <footer></footer>
     </div>
   );

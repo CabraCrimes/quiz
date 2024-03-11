@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from "react";
-import MemoryGame from "../../../components/memory/MemoryGame";
-import PexelsAPI from "../../../api/PexelsAPI";
+import MemoryGame from "../../../../components/memory/MemoryGame";
+import PexelsAPI from "../../../../api/PexelsAPI";
 import "./Memory.css";
 
 
@@ -18,6 +18,7 @@ const Memory = () => {
 
   return (
     <>
+    <h1>Animals</h1>
       <div>
         <MemoryGame memoryData={memoryData} />
       </div>
