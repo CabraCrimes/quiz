@@ -1,4 +1,9 @@
+header{
+  
+}
+
 header nav{
+   
     display: flex;
     gap: 16px;
     justify-content: end;
@@ -19,7 +24,7 @@ header nav{
     padding: 6px;
     border-radius: 4px;
     height: 30px;
-    color: white;
+    color:rgb(45, 42, 42);
   }
   
   header nav a.active {
