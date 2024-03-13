@@ -1,10 +1,10 @@
 import React,{useState, useEffect} from "react";
-import MemoryGame from "../../../../components/memory/MemoryGame";
-import PexelsAPI from "../../../../api/PexelsAPI";
-import "./Memory.css";
+import MemoryGame from "../../../../components/memory/MemoryGame.js";
+import PexelsAPI from "../../../../api/MCAnimalsPexelsAPI.js";
+import "./AnimalMC.css";
 
 
-const Memory = () => {
+const AnimalMC = () => {
   const [memoryData, setMemoryData] = useState([]);
   
   useEffect(()=>{
@@ -26,4 +26,4 @@ const Memory = () => {
   );
 };
 
-export default Memory;
+export default AnimalMC;
