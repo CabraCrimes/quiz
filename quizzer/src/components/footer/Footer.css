@@ -8,8 +8,10 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #D7DDE8;
-  color: white;
+  background-color: rgba(255, 255, 255, 0.3); /* Adjust the alpha value (fourth parameter) to control the transparency */
+  backdrop-filter: blur(4px);
+  color: rgb(45, 42, 42);
+  
   }
   .footerHeader{
     display: flex;
@@ -23,6 +25,7 @@
   border-bottom: 1px solid wheat;
   max-width: 100%;
   display: flex;
+  
 }
 
 .footerMain{
@@ -36,16 +39,19 @@
 .footerNavigation a{
   margin-bottom: 6px;
   display: flex;
-  color: azure;
+  color: rgb(45, 42, 42);
   text-decoration: none;
 }
 
 .footerNavigation h3{
   margin: 0px;
+  border-bottom: 1px solid wheat;
+  
 }
 
 .footerContact h3{
   margin: 0px;
+  border-bottom: 1px solid wheat;
 }
 
 p{

@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 //pages
-import Memory from "./Pages/Games/matching-cards/maching-cards-animals/Memory";
-import PictureMultpleChoice from "./Pages/Games/picture-multple-choice/PictureMultpleChoice";
+import ClothesMC from "./Pages/Games/matching-cards/maching-cards-clothes/ClothesMC";
+import AnimalMC from "./Pages/Games/matching-cards/maching-cards-animals/AnimalMC";
 import reportWebVitals from "./reportWebVitals";
 import GamesList from "./Pages/games-list-page/GamesList";
 import "./App.css";
@@ -32,12 +32,12 @@ const router = createBrowserRouter(
           
         },
         {
-          path: "/games/Animals",
-          element: <Memory />,
+          path: "/games/animals",
+          element: <AnimalMC />,
         },
         {
-          path: "/games/2",
-          element: <PictureMultpleChoice />,
+          path: "/games/clothes",
+          element: <ClothesMC />,
         }
       ],
     },
