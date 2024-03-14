@@ -7,8 +7,9 @@ body {
   align-items: center;
   justify-content: center;
   
-  border: 1px solid rgb(110, 137, 148);
-  background-color: rgb(133, 153, 165);
+  border: 1px solid rgb(255, 214, 111);
+  background-color: rgb(255, 214, 111);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   display: grid;
   gap: 8px;
