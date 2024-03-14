@@ -5,6 +5,7 @@ import MCClothesPexelsAPI from "../../../../api/MCClothesPexelsAPI.js";
 
 const ClothesMC = () => {
 
+    
 const [memoryData, setMemoryData] = useState([]);
   
     useEffect(()=>{
@@ -20,7 +21,7 @@ const [memoryData, setMemoryData] = useState([]);
     return(
         <>
         <h1>Clothes</h1>
-        {/* <div><MemoryGame /></div> */}
+        <div><MemoryGame memoryData={memoryData} /></div>
         </>
     )
 }
