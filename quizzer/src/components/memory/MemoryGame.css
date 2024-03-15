@@ -6,9 +6,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  border: 1px solid rgb(255, 214, 111);
-  background-color: rgb(255, 214, 111);
+  background-image: url("../../assests/5953325.jpg");
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   display: grid;

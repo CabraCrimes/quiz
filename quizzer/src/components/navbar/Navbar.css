@@ -1,6 +1,10 @@
+.background-header{
+  background-image: url("../../assests/layered-waves-navbar-2.svg");
+}
+
 
 header nav{
-   
+    
     display: flex;
     gap: 16px;
     justify-content: end;
