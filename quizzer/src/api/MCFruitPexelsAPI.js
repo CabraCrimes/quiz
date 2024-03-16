@@ -1,11 +1,11 @@
 import { createClient } from "pexels";
 
-const MCClothesPexelsAPI = async () => {
+const MCCFruitPexelsAPI = async () => {
   const client = createClient(process.env.REACT_APP_PEXELS_API_KEY);
   // const query = "test";
   try {
     const id = [
-      985635, 1124465, 1287513, 65676, 16170, 19346997, 19090, 8532616,
+        139229, 161559, 2872755, 46174, 51312, 672101, 557659, 7657204,
     ];
     const response = [];
     for (let i = id.length - 1; i >= 0; i--) {
@@ -18,4 +18,4 @@ const MCClothesPexelsAPI = async () => {
   }
 };
 
-export default MCClothesPexelsAPI;
+export default MCCFruitPexelsAPI;

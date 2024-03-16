@@ -4,8 +4,6 @@ import MemoryGame from "../../../../components/memory/MemoryGame";
 import MCClothesPexelsAPI from "../../../../api/MCClothesPexelsAPI.js";
 
 const ClothesMC = () => {
-
-    
 const [memoryData, setMemoryData] = useState([]);
   
     useEffect(()=>{
@@ -15,8 +13,6 @@ const [memoryData, setMemoryData] = useState([]);
         }
     fetchMemoryData()
     },[]);
-
-    console.log(memoryData)
 
     return(
         <>
