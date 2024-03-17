@@ -1,7 +1,21 @@
+import React, {useEffect, useState} from "react";
 import { NavLink } from "react-router-dom";
 import "./GameList.css";
+import GameListPexelsAPI from "../../api/GameListPexelsAPI";
+
 const GamesList = () => {
   const gameList = ["Animals", "Clothes", "Fruit", "Vegetables"];
+  const [memoryData, setMemoryData] = useState([]);
+  
+  useEffect(()=>{
+    const fetchMemoryData = async () =>{
+      const fetchedMemoryData = await GameListPexelsAPI();
+      setMemoryData(fetchedMemoryData);
+    }
+    fetchMemoryData()
+  },[]);
+  
+console.log(memoryData.map(e => e.src.original))
 
   return (
     <div>
@@ -19,9 +33,12 @@ const GamesList = () => {
                   key={gameLists}
                   to={`/games/${gameLists}`}
                 >
+                  {/* Make component */}
+
+                  {/* if gameList is animaks then display animal id. If the gameList("animals") === id **** display image */}
                   <div className="macthingCardsButton">
                     <h2 className={"macthingCardLinks"}>Game {gameLists}</h2>
-                    <img></img>
+                    {/* <img src={} alt="quizzer"/> */}
                   </div>
                 </NavLink>
               );
