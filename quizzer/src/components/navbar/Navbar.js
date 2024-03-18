@@ -8,7 +8,7 @@ const Navbar = () => {
             <header className="background-header">
                 <nav className="navbar">
                     <h1 className="nav-header">Quizzer</h1>
-                    <NavLink to={"quizzer"}>Quizzer</NavLink>
+                    <NavLink to={"quizzer"}>About</NavLink>
                     <NavLink to={"/games"}>Games</NavLink>
                 </nav>
             </header>
