@@ -1,32 +1,35 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./GameList.css";
+import AstroLoader from "../../components/loading-indicator/AstroLoader";
 import GameListPexelsAPI from "../../api/GameListPexelsAPI";
 
 const GamesList = () => {
-  const gameList = ["Vegetables", "Fruit", "Clothes" ,"Animals"];
+  // ADD THE PEXEL ID IN THE GAMELISTT WITH THE NAME TO MAKE IT EFFICIENT. Make them key value pairs E.G: 11246: Animals
+  const gameList = ["Vegetables", "Fruit", "Clothes", "Animals"];
   const [memoryData, setMemoryData] = useState([]);
-  
-  useEffect(()=>{
-    const fetchMemoryData = async () =>{
+
+  useEffect(() => {
+    const fetchMemoryData = async () => {
       const fetchedMemoryData = await GameListPexelsAPI();
       setMemoryData(fetchedMemoryData);
-    }
-    fetchMemoryData()
-    
-  },[]);
+    };
+    fetchMemoryData();
+  }, []);
 
   //Adds the gameList to the Pexel photo data. Checks the ID of the photo then adds the gameList name.
   const sortDataGameList = () => {
-  const idToGameIndex = Object.fromEntries(memoryData.map((data, index) => [data.id, index]))
-  return memoryData.map(data => ({
-    ...data,
-    gameListMapped: gameList[idToGameIndex[data.id]]
-  }));
-};
-const sortedGamlistData = sortDataGameList();
-  
-    console.log(sortedGamlistData)
+    const idToGameIndex = Object.fromEntries(
+      memoryData.map((data, index) => [data.id, index])
+    );
+    return memoryData.map((data) => ({
+      ...data,
+      gameListMapped: gameList[idToGameIndex[data.id]],
+    }));
+  };
+  const sortedGamelistData = sortDataGameList();
+
+  const loading = sortedGamelistData.length === 0;
 
   // const updatedData = []
   // memoryData.map(data => {
@@ -42,7 +45,7 @@ const sortedGamlistData = sortDataGameList();
   //   return null;
   //   });
   //   return updatedData
-  
+
   return (
     <div>
       <header className="header">
@@ -51,24 +54,28 @@ const sortedGamlistData = sortDataGameList();
       <main>
         <div className="container">
           <h2>Matching Cards</h2>
+        {loading ? <AstroLoader/> :
           <div className="matchingCards">
-            {sortedGamlistData.map((data) => {
+             {sortedGamelistData.map((data) => {
               return (
                 <NavLink
                   style={{ textDecoration: "none" }}
                   key={data.id}
                   to={`/games/${data.gameListMapped}`}
                 >
-                  {/* Make component */}
+                  {/* MAKE THIS A COMPONENT*/}
                   <div className="macthingCardsButton">
-                    <h2 className={"macthingCardLinks"}>Game {data.gameListMapped}</h2>
-                      <img src={data.src.original} alt={data.gameListMapped}/>
+                    <h2 className={"macthingCardLinks"}>
+                      Game {data.gameListMapped}
+                    </h2>
+                    <img src={data.src.original} alt={data.gameListMapped} />
                   </div>
                 </NavLink>
               );
             })}
           </div>
-        </div> 
+          } 
+        </div>
       </main>
       <footer></footer>
     </div>
