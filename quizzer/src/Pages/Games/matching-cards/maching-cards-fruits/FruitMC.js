@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./FruitMC.css";
 import MemoryGame from "../../../../components/memory/MemoryGame";
 import MCCFruitPexelsAPI from "../../../../api/MCFruitPexelsAPI";
+import AstroLoader from "../../../../components/loading-indicator/AstroLoader";
+
 const FuitMC = () => {
   const [memoryData, setMemoryData] = useState([]);
 
@@ -13,13 +15,13 @@ const FuitMC = () => {
     fetchMemoryData();
   }, []);
 
-  console.log(memoryData);
+  const loading = memoryData.length === 0;
 
   return (
     <>
       <h1>Fruit</h1>
       <div>
-        <MemoryGame memoryData={memoryData} />
+        {loading && <AstroLoader/>} <MemoryGame memoryData={memoryData} />
       </div>
     </>
   );

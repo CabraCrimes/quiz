@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import "./ClothesMC.css"
 import MemoryGame from "../../../../components/memory/MemoryGame";
 import MCClothesPexelsAPI from "../../../../api/MCClothesPexelsAPI.js";
+import AstroLoader from "../../../../components/loading-indicator/AstroLoader.js";
 
 const ClothesMC = () => {
 const [memoryData, setMemoryData] = useState([]);
@@ -14,10 +15,11 @@ const [memoryData, setMemoryData] = useState([]);
     fetchMemoryData()
     },[]);
 
+    const loading = memoryData.length === 0;
     return(
         <>
         <h1>Clothes</h1>
-        <div><MemoryGame memoryData={memoryData} /></div>
+        <div>{ loading && <AstroLoader/>} <MemoryGame memoryData={memoryData} /></div>
         </>
     )
 }
