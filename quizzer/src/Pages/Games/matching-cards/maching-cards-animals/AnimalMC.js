@@ -20,10 +20,13 @@ const AnimalMC = () => {
   return (
     <>
       <h1>Animals</h1>
-      {loading && <AstroLoader />}
-      <div>
-         <MemoryGame memoryData={memoryData} />
-      </div>
+      {loading ? (
+        <AstroLoader />
+      ) : (
+        <div>
+          <MemoryGame memoryData={memoryData} />
+        </div>
+      )}
     </>
   );
 };

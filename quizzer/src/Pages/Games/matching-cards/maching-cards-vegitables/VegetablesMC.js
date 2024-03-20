@@ -20,9 +20,13 @@ const VegetablesMC = () => {
   return (
     <>
       <h1>Vegetables</h1>
-      <div>
-       {loading && <AstroLoader/>} <MemoryGame memoryData={memoryData} />
-      </div>
+      {loading ? (
+        <AstroLoader />
+      ) : (
+        <div>
+          <MemoryGame memoryData={memoryData} />
+        </div>
+      )}
     </>
   );
 };
