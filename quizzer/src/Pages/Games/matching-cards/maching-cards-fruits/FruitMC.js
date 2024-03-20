@@ -20,9 +20,13 @@ const FuitMC = () => {
   return (
     <>
       <h1>Fruit</h1>
-      <div>
-        {loading && <AstroLoader/>} <MemoryGame memoryData={memoryData} />
-      </div>
+      {loading ? (
+        <AstroLoader />
+      ) : (
+        <div>
+          <MemoryGame memoryData={memoryData} />
+        </div>
+      )}
     </>
   );
 };
