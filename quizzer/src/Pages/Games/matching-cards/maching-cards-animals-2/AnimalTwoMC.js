@@ -1,25 +1,27 @@
 import React, { useState, useEffect } from "react";
 import MemoryGame from "../../../../components/memory/MemoryGame.js";
-import MCAnimalPexelsAPI from "../../../../api/MCAnimalsPexelsAPI.js";
+import MCAnimalsTwoPexelsAPI from "../../../../api/MCAnimalsTwoPexelsAPI.js";
 import AstroLoader from "../../../../components/loading-indicator/AstroLoader.js";
-import "./AnimalMC.css";
+import "./AnimalTwoMC.css";
 
-const AnimalMC = () => {
+const AnimalTwoMC = () => {
   const [memoryData, setMemoryData] = useState([]);
 
   useEffect(() => {
     const fetchMemoryData = async () => {
-      const fetchedMemoryData = await MCAnimalPexelsAPI();
+      const fetchedMemoryData = await MCAnimalsTwoPexelsAPI();
       setMemoryData(fetchedMemoryData);
     };
     fetchMemoryData();
   }, []);
 
+  console.log(memoryData)
+
   const loading = memoryData.length === 0;
   console.log(loading);
   return (
     <>
-      <h1>Animals 1</h1>
+      <h1>Animals 2</h1>
       {loading ? (
         <AstroLoader />
       ) : (
@@ -31,4 +33,4 @@ const AnimalMC = () => {
   );
 };
 
-export default AnimalMC;
+export default AnimalTwoMC;

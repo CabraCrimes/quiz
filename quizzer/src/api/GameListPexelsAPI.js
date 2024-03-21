@@ -4,9 +4,9 @@ const GameListPexelsAPI = async () => {
 const client = createClient(process.env.REACT_APP_PEXELS_API_KEY);
 // const query = "test";
     try{
-
+        //Add new ID at the beggining ov the array not the end
         const id = [
-            635499, 581087, 1120581, 1435904
+            792381 ,635499, 581087, 1120581, 1435904
         ];
         const response = [];
         for (let i = id.length - 1; i >= 0; i--) {
