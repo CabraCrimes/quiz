@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 //pages
+import AnimalTwoMC from "./Pages/Games/matching-cards/maching-cards-animals-2/AnimalTwoMC";
 import VegetablesMC from "./Pages/Games/matching-cards/maching-cards-vegitables/VegetablesMC";
 import FuitMC from "./Pages/Games/matching-cards/maching-cards-fruits/FruitMC";
 import ClothesMC from "./Pages/Games/matching-cards/maching-cards-clothes/ClothesMC";
@@ -34,7 +35,7 @@ const router = createBrowserRouter(
           
         },
         {
-          path: "/games/animals",
+          path: "/games/animals 1",
           element: <AnimalMC />,
         },
         {
@@ -49,7 +50,12 @@ const router = createBrowserRouter(
         {
           path: "/games/vegetables",
           element: <VegetablesMC /> ,
-        }
+        },
+        {
+          path: "/games/animals 2",
+          element: <AnimalTwoMC /> ,
+        },
+
       ],
     },
   ]

@@ -1,12 +1,12 @@
 import { createClient } from 'pexels';
 
-const PexelsAPI = async () => {
+const MCAnimalsTwoPexelsAPI = async () => {
 const client = createClient(process.env.REACT_APP_PEXELS_API_KEY);
 // const query = "test";
     try{
 
         const id = [
-            422218, 1769279, 110820, 635499, 104373, 86594, 97317, 833687
+            7256547, 2220337, 16848028, 792381, 247431, 3250752, 733998, 2317904
         ];
         const response = [];
         for (let i = id.length - 1; i >= 0; i--) {
@@ -20,6 +20,6 @@ const client = createClient(process.env.REACT_APP_PEXELS_API_KEY);
     
 };
 
-export default PexelsAPI;
+export default MCAnimalsTwoPexelsAPI;
 
 

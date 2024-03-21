@@ -6,11 +6,12 @@ import GameListPexelsAPI from "../../api/GameListPexelsAPI";
 
 const GamesList = () => {
   // ADD THE PEXEL ID IN THE GAMELISTT WITH THE NAME TO MAKE IT EFFICIENT. Make them key value pairs E.G: 11246: Animals
-  const gameList = ["Vegetables", "Fruit", "Clothes", "Animals"];
+  const gameList = ["Vegetables", "Fruit", "Clothes", "Animals 1", "Animals 2"];
   const [memoryData, setMemoryData] = useState([]);
 
   useEffect(() => {
     const fetchMemoryData = async () => {
+      //Remeber to add new id to the GameListPexelsAPI
       const fetchedMemoryData = await GameListPexelsAPI();
       setMemoryData(fetchedMemoryData);
     };
