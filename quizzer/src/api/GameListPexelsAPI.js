@@ -1,7 +1,8 @@
 import { createClient } from 'pexels';
 
 const GameListPexelsAPI = async () => {
-const client = createClient(process.env.REACT_APP_PEXELS_API_KEY);
+    const client = createClient(process.env.REACT_APP_PEXELS_API_KEY);
+    // console.log('API Key:', process.env.REACT_APP_PEXELS_API_KEY); // Check if API key is being read correctly
 // const query = "test";
     try{
         //Add new ID at the beggining ov the array not the end
