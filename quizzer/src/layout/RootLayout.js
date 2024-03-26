@@ -1,4 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
+import "./RootLayout.css"
+import Welcome from "../components/welcome/Welcome.js";
 import Footer from "../components/footer/Footer.js";
 import Navbar from "../components/navbar/Navbar.js";
 
@@ -12,8 +14,8 @@ const RootLayout = () => {
           <Navbar />
       </header>
       <main>
-            {/* This can be a component, the welcome message */}
-            {location.pathname === "/" && <h2>Welcome to Quizzer. This is a learning platform that uses games to teach. Please click on Games to try out our fun educational games.</h2>}
+            {/*  Welcome message */}
+            {location.pathname === "/" && <Welcome /> }
             <Outlet/>
         </main>
         <footer>

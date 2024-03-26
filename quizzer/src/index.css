@@ -6,9 +6,7 @@
 }
 
 body {
-  /* background-color: #282c34; */
-  /* background: var(--secondary); */
-  margin: 0;
+margin: 0;
   font-family: "Poppins";
   color: rgb(45, 42, 42);
   background-image: url('./assests/35018218_8233670.jpg'); 

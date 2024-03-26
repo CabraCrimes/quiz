@@ -10,7 +10,6 @@ import ClothesMC from "./Pages/Games/matching-cards/maching-cards-clothes/Clothe
 import AnimalMC from "./Pages/Games/matching-cards/maching-cards-animals/AnimalMC";
 import reportWebVitals from "./reportWebVitals";
 import GamesList from "./Pages/games-list-page/GamesList";
-
 import Home from "./Pages/Home/Home";
 //layout
 import RootLayout from "./layout/RootLayout";
