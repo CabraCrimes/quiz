@@ -1,0 +1,69 @@
+.welcome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.parallax-border{
+    background-image: url('../../assests/5953325.jpg'); 
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: 65vh;
+    border-radius: 10px;
+    
+}
+
+.welcome-info {
+    background-image: url("../../assests/wave-haikei-2.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 77vw;
+    height: 60vh;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-1{
+    background: #000405;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 900;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+  }
+
+  .content-1 > p{
+    font-size: 2vw;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+    padding: 40px 0px 40px 0px;
+  }
+
+  .content-2{
+    
+    background-image: url('../../assests/reshot-illustration-online-learning-T9XKNZ7VRC.png'); 
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 77vw;
+    height: 38vh;
+  }
