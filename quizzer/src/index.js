@@ -8,7 +8,6 @@ import VegetablesMC from "./Pages/Games/matching-cards/maching-cards-vegitables/
 import FuitMC from "./Pages/Games/matching-cards/maching-cards-fruits/FruitMC";
 import ClothesMC from "./Pages/Games/matching-cards/maching-cards-clothes/ClothesMC";
 import AnimalMC from "./Pages/Games/matching-cards/maching-cards-animals/AnimalMC";
-import reportWebVitals from "./reportWebVitals";
 import GamesList from "./Pages/games-list-page/GamesList";
 import Home from "./Pages/Home/Home";
 //layout
@@ -67,7 +66,3 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

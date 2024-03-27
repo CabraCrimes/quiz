@@ -25,24 +25,19 @@ const Welcome = () => {
   
     return (
       <div className="welcome">
-        <div>
-            <h1>Welcome</h1>
-        </div>
-          <div
+        <div
             className="parallax-border"
             style={{ left: `${position.x}px`, top: `${position.y}px` }}
           >
             <div className="welcome-info">
                 <span className='content-1'>
-                    <p>Learning English doesn't have to be a chore! Here, we'll show you how to make it fun and engaging with games and pictures.</p>
+                    <p>Struggling to Make English Learning Fun? We've all been there. Textbooks and endless drills can feel like a snoozefest. But what if learning English could be engaging, interactive, and even...dare we say...fun?</p>
                 </span>
-                <span className='content-2'>
-                    
-                </span>
-            </div>
+              </div>
           </div>
       </div>
     );
   };
 
   export default Welcome;
+
