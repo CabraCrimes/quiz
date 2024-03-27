@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import "./RootLayout.css"
-import Welcome from "../components/welcome/Welcome.js";
+import LandingPage from "../Pages/landing-page/LandingPage.js";
 import Footer from "../components/footer/Footer.js";
 import Navbar from "../components/navbar/Navbar.js";
 
@@ -15,7 +15,7 @@ const RootLayout = () => {
       </header>
       <main>
             {/*  Welcome message */}
-            {location.pathname === "/" && <Welcome /> }
+            {location.pathname === "/" && <LandingPage /> }
             <Outlet/>
         </main>
         <footer>
